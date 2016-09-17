@@ -8,6 +8,10 @@ import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.fail;
 
+
+/**
+ * @author Sergey
+ */
 public class BasicArrayTest {
 
     @Test
@@ -52,16 +56,13 @@ public class BasicArrayTest {
         assertArrayReplace(new int[]{Integer.MIN_VALUE}, new int[]{Integer.MIN_VALUE});
         assertArrayReplace(new int[]{Integer.MIN_VALUE, Integer.MAX_VALUE}, new int[]{Integer.MAX_VALUE, Integer.MIN_VALUE});
 
-
-//       assertArrayReplace(new int[]{-1,-1,5}, new int[]{5,5,-1}); todo
-
         assertIncorrectArrayReplace(null);
         assertIncorrectArrayReplace(new int[]{});
 
     }
 
     @Test
-    public void createFirstOddNumbers() {
+    public void createFirstOddNumbersTest() {
         //When
         int[] array = BasicArray.createFirstOddNumbers();
 
@@ -116,7 +117,7 @@ public class BasicArrayTest {
     private void assertIncorrectArrayFind(int[] actualArray) {
         try {
             BasicArray.findMinElement(actualArray);
-            fail("Exception  wasn't throw!");
+            fail("Exception  won't throw!");
         } catch (IllegalArgumentException ignore) {
         }
     }

@@ -3,13 +3,50 @@ package array.project;
 import java.util.Arrays;
 
 /**
- * Basic Array providing searching minimal duplicate of element.
+ * Basic Array provide all the necessary actions specified in the file "README"
  *
  * @author Sergey
  */
 public class BasicArray {
+    /**
+     * An array printing the first 10 odd numbers.
+     *
+     * @return
+     */
+    public static int[] createFirstOddNumbers() {
+        int[] array = new int[10];
+        int x = 1;
+        for (int i = 0; i < array.length; i++) {
+            array[i] = x;
+            x = x + 2;
+        }
+        return array;
+    }
 
     /**
+     * Searching min element
+     *
+     * @param array
+     * @return
+     */
+    public static int[] findMinElement(int[] array) {
+        validateArray(array);
+        Arrays.sort(array);
+        int minElem = array[0];
+        int duplicate = 0;
+
+        for (int item : array) {
+            if (item == minElem) {
+                duplicate++;
+            }
+        }
+        int[] resultArray = new int[duplicate];
+        Arrays.fill(resultArray, minElem);
+
+        return resultArray;
+    }
+    /**
+     * Replace minimum and maximum elements
      *
      * @param array
      * @return
@@ -39,37 +76,14 @@ public class BasicArray {
     }
 
     /**
-     * Searching min element
      *
      * @param array
-     * @return
      */
-    public static int[] findMinElement(int[] array) {
-        validateArray(array);
-
-        Arrays.sort(array);
-        int minElem = array[0];
-        int duplicate = 0;
-
-        for (int item : array) {
-            if (item == minElem) {
-                duplicate++;
-            }
-        }
-        int[] resultArray = new int[duplicate];
-        Arrays.fill(resultArray, minElem);
-
-        return resultArray;
-    }
-
-    /**
-     * @param array
-     */
-    public static void toPrintArray(int[] array) {
+    public static void toPrintArray(int [] array) {
         System.out.println(Arrays.toString(array));
     }
 
-    /**
+    /**the calculation of the arithmetic mean
      * @param array
      * @return
      */
@@ -80,27 +94,11 @@ public class BasicArray {
         for (int i = 0; i < array.length; i++) {
             sum += array[i];
         }
-
         return sum / array.length;
-
     }
 
     /**
-     *
-     * @return
-     */
-    public static int[] createFirstOddNumbers() {
-        int[] array = new int[10];
-        int x = 1;
-        for (int i = 0; i < array.length; i++) {
-            array[i] = x;
-            x = x + 2;
-        }
-        return array;
-    }
-
-    /**
-     * validate array on correct values
+     * validate correct values in the array
      *
      * @param array incoming array
      * @throws IllegalArgumentException if array is null
